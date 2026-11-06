@@ -7,9 +7,9 @@ Site estático (HTML + CSS + JS, sem dependências de build).
 ```
 index.html                      página
 js/antes-depois.js              comparador antes/depois com lupa
-js/ugc-demo.js                  seção de UGC (só no modo demo)
+js/ugc-demo.js                  stories de exemplo (só no modo demo)
 config/casos-antes-depois.js    lista de casos do antes/depois
-config/ugc-demo.js              dados da personagem fictícia (modo demo)
+config/ugc-demo.js              @, legendas e fotos dos stories (modo demo)
 config/site-mode.js             modo local (no deploy é gerado pelo build)
 public/                         imagens
 scripts/build.sh                build: gera dist/ e config/site-mode.js
@@ -18,7 +18,7 @@ render.yaml                     Blueprint da Render
 
 ## Modos (variável SITE_MODE)
 
-- `demo`: mostra a simulação do antes/depois e a personagem fictícia de UGC.
+- `demo`: mostra a simulação do antes/depois e os stories da personagem fictícia.
 - `producao`: esconde todo conteúdo de demonstração.
 
 Na Render, mude em **Dashboard → serviço → Environment → SITE_MODE** e faça um novo deploy
