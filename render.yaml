@@ -1,0 +1,43 @@
+# Blueprint da Render — site estático da Clínica Dra. Luciana Costa
+# Docs: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    runtime: static
+    name: clinica-dra-luciana-costa
+    # Gera config/site-mode.js a partir de SITE_MODE e monta a pasta dist/
+    buildCommand: sh scripts/build.sh
+    staticPublishPath: ./dist
+    autoDeployTrigger: commit
+    envVars:
+      # "demo"     → mostra simulações e personagem fictícia (amostra para a cliente)
+      # "producao" → esconde tudo que é demonstração (site no ar com casos reais)
+      - key: SITE_MODE
+        value: demo
+    headers:
+      # Segurança básica
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: X-Frame-Options
+        value: SAMEORIGIN
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      # HTML e configurações sempre atualizados (sem cache antigo após deploy)
+      - path: /
+        name: Cache-Control
+        value: no-cache
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /config/*
+        name: Cache-Control
+        value: no-cache
+      - path: /js/*
+        name: Cache-Control
+        value: public, max-age=0, must-revalidate
+      # Imagens: cache de 1 dia (os nomes de arquivo não mudam ao trocar a foto)
+      - path: /public/*
+        name: Cache-Control
+        value: public, max-age=86400
