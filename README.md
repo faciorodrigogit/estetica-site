@@ -1,4 +1,4 @@
-# Clínica Dra. Luciana Costa — Landing page
+# Clínica Dra. Nome Sobrenome — Landing page
 
 Site estático (HTML + CSS + JS, sem dependências de build).
 

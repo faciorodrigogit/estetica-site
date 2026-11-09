@@ -1,4 +1,4 @@
-# Blueprint da Render — site estático da Clínica Dra. Luciana Costa
+# Blueprint da Render — site estático da Clínica Dra. Nome Sobrenome
 # Docs: https://render.com/docs/blueprint-spec
 services:
   - type: web
